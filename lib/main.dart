@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/home.dart';
 import 'package:instagram/login.dart';
 
 void main() {

@@ -10,8 +10,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController username_controller = TextEditingController();
-  TextEditingController password_controller = TextEditingController();
+  String profName = "yusufguntav";
+  String password = "123456";
+  TextEditingController userNameCont = TextEditingController();
+  TextEditingController passwordCont = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _LoginState extends State<Login> {
             Container(
               margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
               child: TextField(
-                controller: username_controller,
+                controller: userNameCont,
                 cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -39,7 +41,7 @@ class _LoginState extends State<Login> {
             Container(
               margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
               child: TextField(
-                controller: password_controller,
+                controller: passwordCont,
                 cursorColor: Colors.black,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -50,12 +52,14 @@ class _LoginState extends State<Login> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  if (username_controller.text == "Yusuf" &&
-                      password_controller.text == "123456") {
+                  if (userNameCont.text == profName &&
+                      passwordCont.text == password) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Home(),
+                          builder: (context) => Home(
+                            profName: profName,
+                          ),
                         ));
                   } else {
                     showDialog<String>(
@@ -64,7 +68,7 @@ class _LoginState extends State<Login> {
                             title: Text('Username or password is incorrect')));
                   }
                 },
-                child: const Text("Giriş"))
+                child: const Text("Login"))
           ],
         ),
       )),
