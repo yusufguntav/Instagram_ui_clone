@@ -53,76 +53,18 @@ class _HomeState extends State<Home> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 0),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
+                    for (int i = 0; i < 10; i++) ...[
+                      Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: FloatingActionButton(
+                          onPressed: () {},
+                          child: const CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(
+                                  "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: const CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                      ),
-                    ),
+                    ]
                   ],
                 ),
               ),
@@ -195,7 +137,10 @@ class _HomeState extends State<Home> {
                                       Icons.send,
                                       color: Colors.white,
                                     )),
-                                Expanded(flex: 10, child: SizedBox()),
+                                Expanded(
+                                  flex: 10,
+                                  child: SizedBox(),
+                                ),
                                 Expanded(
                                     flex: 1,
                                     child: Icon(
