@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SafeArea(
           child: Center(
         child: Column(
@@ -26,14 +26,21 @@ class _LoginState extends State<Login> {
           children: [
             Text('Instagram',
                 style:
-                    GoogleFonts.shalimar(fontSize: 100, color: Colors.black)),
+                    GoogleFonts.shalimar(fontSize: 100, color: Colors.white)),
             Container(
               margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
               child: TextField(
                 controller: userNameCont,
-                cursorColor: Colors.black,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Colors.white),
+                  // Wİll be change
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                   labelText: "User Name",
                 ),
               ),
@@ -43,14 +50,24 @@ class _LoginState extends State<Login> {
               child: TextField(
                 controller: passwordCont,
                 cursorColor: Colors.black,
+                style: const TextStyle(color: Colors.white),
                 obscureText: true,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Colors.white),
+                  // Wİll be change
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+
                   labelText: "Password",
                 ),
               ),
             ),
             ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                 onPressed: () {
                   if (userNameCont.text == profName &&
                       passwordCont.text == password) {
@@ -68,7 +85,10 @@ class _LoginState extends State<Login> {
                             title: Text('Username or password is incorrect')));
                   }
                 },
-                child: const Text("Login"))
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ))
           ],
         ),
       )),
