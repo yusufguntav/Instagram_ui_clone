@@ -12,8 +12,9 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   String profName = "yusufguntav";
   String password = "123456";
-  TextEditingController userNameCont = TextEditingController();
-  TextEditingController passwordCont = TextEditingController();
+  TextEditingController userNameCont = TextEditingController()
+    ..text = "yusufguntav";
+  TextEditingController passwordCont = TextEditingController()..text = "123456";
 
   @override
   Widget build(BuildContext context) {

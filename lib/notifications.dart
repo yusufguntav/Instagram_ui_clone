@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/widgets/storyPhoto.dart';
 
 class notifications extends StatefulWidget {
-  const notifications({Key? key}) : super(key: key);
+  const notifications({super.key});
 
   @override
-  _notificationsState createState() => _notificationsState();
+  State<notifications> createState() => _notificationsState();
 }
 
 class _notificationsState extends State<notifications> {
@@ -13,29 +14,39 @@ class _notificationsState extends State<notifications> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
         leading: IconButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,
             )),
-        title: const Text(
+        title: Text(
           "Notifications",
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
       body: SafeArea(
-        child: Container(
-            color: Colors.black,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
-                Text(
-                  "dwapğkdwa",
-                  style: TextStyle(color: Colors.white),
-                )
+        child: Column(
+          children: [
+            Expanded(
+                child: ListView(
+              children: [
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.yellow,
+                  ),
+                  title: Text("Follow requests"),
+                  subtitle: Text("Approve or ignore requests"),
+                ),
+                Text("dwa"),
+                Text("dwa"),
               ],
-            )),
+            ))
+          ],
+        ),
       ),
     );
   }

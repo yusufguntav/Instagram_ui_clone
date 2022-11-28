@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram/chats.dart';
 import 'package:insta_like_button/insta_like_button.dart';
 import 'package:instagram/notifications.dart';
+import 'package:instagram/widgets/profilePhoto.dart';
 
 class Home extends StatefulWidget {
   final String profName;
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => notifications(),
+                    builder: (context) => const notifications(),
                   ));
             },
             icon: const Icon(Icons.favorite_outline),
@@ -65,15 +66,11 @@ class _HomeState extends State<Home> {
                   children: [
                     for (int i = 0; i < 10; i++) ...[
                       Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        child: FloatingActionButton(
-                          onPressed: () {},
-                          child: const CircleAvatar(
-                              radius: 30,
-                              backgroundImage: NetworkImage(
-                                  "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg")),
-                        ),
-                      ),
+                          margin: const EdgeInsets.only(right: 10),
+                          child: profilePhoto(
+                            photo:
+                                "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg",
+                          )),
                     ]
                   ],
                 ),
@@ -93,13 +90,13 @@ class _HomeState extends State<Home> {
                             color: Colors.black,
                             child: Row(
                               children: [
-                                const Expanded(
-                                  flex: 1,
-                                  child: CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                        "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg"),
-                                  ),
-                                ),
+                                Expanded(
+                                    flex: 1,
+                                    child: profilePhoto(
+                                      photo:
+                                          "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg",
+                                      size: 20,
+                                    )),
                                 Expanded(
                                   flex: 6,
                                   child: Text(
