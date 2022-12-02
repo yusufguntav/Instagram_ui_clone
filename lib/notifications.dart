@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/storyPhoto.dart';
 
 class notifications extends StatefulWidget {
   const notifications({super.key});
@@ -23,9 +22,9 @@ class _notificationsState extends State<notifications> {
               Icons.arrow_back,
               color: Colors.white,
             )),
-        title: Text(
+        title: const Text(
           "Notifications",
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: SafeArea(
@@ -34,15 +33,15 @@ class _notificationsState extends State<notifications> {
             Expanded(
                 child: ListView(
               children: [
-                ListTile(
+                const ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.yellow,
                   ),
                   title: Text("Follow requests"),
                   subtitle: Text("Approve or ignore requests"),
                 ),
-                Text("dwa"),
-                Text("dwa"),
+                const Text("dwa"),
+                const Text("dwa"),
               ],
             ))
           ],

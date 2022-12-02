@@ -1,98 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instagram/home.dart';
+import 'package:instagram/widgets/textBox.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class login extends StatefulWidget {
+  const login({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<login> createState() => _loginState();
 }
 
-class _LoginState extends State<Login> {
+class _loginState extends State<login> {
   String profName = "yusufguntav";
   String password = "123456";
-  TextEditingController userNameCont = TextEditingController()
-    ..text = "yusufguntav";
-  TextEditingController passwordCont = TextEditingController()..text = "123456";
-
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-          child: Center(
+      backgroundColor: const Color.fromARGB(255, 26, 26, 26),
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Instagram',
-                style:
-                    GoogleFonts.shalimar(fontSize: 100, color: Colors.white)),
-            Container(
-              margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
-              child: TextField(
-                controller: userNameCont,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  labelStyle: TextStyle(color: Colors.white),
-                  // Wİll be change
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                  ),
-                  labelText: "User Name",
-                ),
+            const Spacer(
+              flex: 5,
+            ),
+            SingleChildScrollView(
+              child: Expanded(
+                flex: 2,
+                child: Text('Instagram',
+                    style: GoogleFonts.shalimar(
+                        fontSize: 80, color: Colors.white)),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
-              child: TextField(
-                controller: passwordCont,
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.white),
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelStyle: TextStyle(color: Colors.white),
-                  // Wİll be change
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+            Column(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+                  child: textBox(
+                    TEC: usernameController,
+                    hint_text: "Phone number, username or email address",
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                  ),
-
-                  labelText: "Password",
                 ),
-              ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+                  child: textBox(
+                    TEC: passwordController,
+                    hint_text: "Password",
+                    isPassword: true,
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: (() {
+                    if (usernameController.text.toString() == profName &&
+                        passwordController.text.toString() == password) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Home(profName: profName)));
+                    } else {
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => const AlertDialog(
+                              title:
+                                  Text('Username or password is incorrect')));
+                    }
+                  }),
+                  child: Text(
+                    "Log In",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 0, 151, 255)),
+                )
+              ],
             ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                onPressed: () {
-                  if (userNameCont.text == profName &&
-                      passwordCont.text == password) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Home(
-                            profName: profName,
-                          ),
-                        ));
-                  } else {
-                    showDialog<String>(
-                        context: context,
-                        builder: (BuildContext context) => const AlertDialog(
-                            title: Text('Username or password is incorrect')));
-                  }
-                },
-                child: const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.black),
-                ))
+            const Spacer(
+              flex: 5,
+            ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
