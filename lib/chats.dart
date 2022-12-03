@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/chatAndCall.dart';
+import 'package:instagram/pages/chatAndCall.dart';
 import 'package:instagram/widgets/searchBar.dart';
 
 class Chat extends StatefulWidget {

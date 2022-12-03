@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/profilePhoto.dart';
+import 'package:instagram/widgets/profilePhotoContent.dart';
 
 class chatandCall extends StatelessWidget {
   int lanaOrDuke;
