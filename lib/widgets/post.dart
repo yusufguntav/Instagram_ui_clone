@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class post extends StatefulWidget {
+class Post extends StatefulWidget {
   String imageSrc;
-  post({super.key, required this.imageSrc});
+  Post({super.key, required this.imageSrc});
 
   @override
-  State<post> createState() => _postState();
+  State<Post> createState() => _PostState();
 }
 
-class _postState extends State<post> {
+class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width / 3,
       height: size.height / 4,
       child: Padding(

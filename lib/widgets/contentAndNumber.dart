@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class contentAndNumber extends StatelessWidget {
+class ContentAndNumber extends StatelessWidget {
   Color color;
   double size;
   int number;
   String content;
-  contentAndNumber(
+  ContentAndNumber(
       {super.key,
       required this.number,
       required this.content,
@@ -17,12 +17,12 @@ class contentAndNumber extends StatelessWidget {
     return Column(
       children: [
         Text(
-          this.number.toString(),
+          number.toString(),
           style: TextStyle(
               fontSize: size, fontWeight: FontWeight.bold, color: color),
         ),
         Text(
-          this.content.toString(),
+          content.toString(),
           style: TextStyle(fontSize: size, color: color),
         )
       ],

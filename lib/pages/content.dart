@@ -2,26 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:insta_like_button/insta_like_button.dart';
 import 'package:instagram/widgets/profilePhotoContent.dart';
 
-class content extends StatefulWidget {
+class Content extends StatefulWidget {
   String profname;
-  content({super.key, required this.profname});
+  Content({super.key, required this.profname});
 
   @override
-  State<content> createState() => _contentState();
+  State<Content> createState() => _ContentState();
 }
 
-class _contentState extends State<content> {
+class _ContentState extends State<Content> {
   List<int> likedImageIndexes = [];
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: ListView(
         children: [
           Container(
-            color: Colors.black,
+            color: Color.fromRGBO(0, 0, 0, 1),
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(5.0),
               scrollDirection: Axis.horizontal,
@@ -30,7 +28,7 @@ class _contentState extends State<content> {
                   for (int i = 0; i < 10; i++) ...[
                     Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: profilePhoto(
+                      child: ProfilePhoto(
                         photo:
                             "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg",
                       ),
@@ -55,7 +53,7 @@ class _contentState extends State<content> {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: profilePhoto(
+                                child: ProfilePhoto(
                                   photo:
                                       "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg",
                                   size: 20,

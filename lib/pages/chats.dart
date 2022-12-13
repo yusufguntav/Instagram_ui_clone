@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/pages/chatAndCall.dart';
+import 'package:instagram/widgets/chatAndCall.dart';
 import 'package:instagram/widgets/searchBar.dart';
 
 class Chat extends StatefulWidget {
@@ -68,9 +68,9 @@ class _ChatState extends State<Chat> {
                     const SizedBox(
                       height: 10,
                     ),
-                    searchBar(),
+                    SearchBar(),
                     for (int x = 1; x <= 10; x++) ...[
-                      chatandCall(
+                      ChatAndCall(
                         lanaOrDuke: x,
                       )
                     ]
@@ -90,7 +90,7 @@ class _ChatState extends State<Chat> {
                               fontWeight: FontWeight.bold),
                         )),
                     for (int x = 1; x <= 10; x++) ...[
-                      chatandCall(
+                      ChatAndCall(
                         lanaOrDuke: x,
                       )
                     ]

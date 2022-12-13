@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class explorePage extends StatefulWidget {
+class ExplorePage extends StatefulWidget {
   BottomNavigationBar bottomNavigationBar;
-  explorePage({super.key, required this.bottomNavigationBar});
+  ExplorePage({super.key, required this.bottomNavigationBar});
 
   @override
-  State<explorePage> createState() => _explorePageState();
+  State<ExplorePage> createState() => _ExplorePageState();
 }
 
-class _explorePageState extends State<explorePage> {
+class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Explore"),
+        title: const Text("Explore"),
         automaticallyImplyLeading: false,
       ),
-      body: Text("Explore"),
+      body: const Text("Explore"),
       bottomNavigationBar: widget.bottomNavigationBar,
     );
   }

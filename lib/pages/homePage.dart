@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/notifications.dart';
-
-import '../chats.dart';
+import 'package:instagram/pages/cameraPage.dart';
+import 'chats.dart';
 import 'content.dart';
+import 'notifications.dart';
 
-class homePage extends StatefulWidget {
+// ignore: must_be_immutable
+class HomePage extends StatelessWidget {
   String profName;
+
   BottomNavigationBar bottomNavigationBar;
-  homePage(
+  HomePage(
       {super.key, required this.profName, required this.bottomNavigationBar});
 
-  @override
-  State<homePage> createState() => _homePageState();
-}
-
-class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +25,13 @@ class _homePageState extends State<homePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CameraPage(),
+                  ));
+            },
             icon: const Icon(Icons.add_box_outlined),
           ),
           IconButton(
@@ -36,7 +39,7 @@ class _homePageState extends State<homePage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const notifications(),
+                    builder: (context) => const Notifications(),
                   ));
             },
             icon: const Icon(Icons.favorite_outline),
@@ -47,7 +50,7 @@ class _homePageState extends State<homePage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => Chat(
-                            profName: widget.profName,
+                            profName: profName,
                           )));
             },
             icon: const Icon(Icons.message_outlined),
@@ -56,9 +59,9 @@ class _homePageState extends State<homePage> {
       ),
       // Content
       body: SafeArea(
-        child: content(profname: widget.profName),
+        child: Content(profname: profName),
       ),
-      bottomNavigationBar: widget.bottomNavigationBar,
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

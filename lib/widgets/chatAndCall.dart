@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/widgets/profilePhotoContent.dart';
 
-class chatandCall extends StatelessWidget {
+class ChatAndCall extends StatelessWidget {
   int lanaOrDuke;
-  chatandCall({super.key, this.lanaOrDuke = 0});
+  ChatAndCall({super.key, this.lanaOrDuke = 0});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +14,7 @@ class chatandCall extends StatelessWidget {
             flex: 3,
             child: Row(
               children: [
-                profilePhoto(
+                ProfilePhoto(
                     photo: (lanaOrDuke % 2 == 0)
                         ? "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
                         : "https://i.etsystatic.com/36532523/r/il/97ae46/4078306713/il_340x270.4078306713_n74s.jpg"),

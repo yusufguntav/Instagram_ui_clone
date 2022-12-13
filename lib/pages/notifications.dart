@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class notifications extends StatefulWidget {
-  const notifications({super.key});
+class Notifications extends StatefulWidget {
+  const Notifications({super.key});
 
   @override
-  State<notifications> createState() => _notificationsState();
+  State<Notifications> createState() => _NotificationsState();
 }
 
-class _notificationsState extends State<notifications> {
+class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

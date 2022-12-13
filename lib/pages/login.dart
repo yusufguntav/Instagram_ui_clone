@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:instagram/home.dart';
 import 'package:instagram/widgets/textBox.dart';
+import 'package:instagram/pages/home.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   String profName = "yusufguntav";
   String password = "123456";
   TextEditingController usernameController = TextEditingController();
@@ -38,7 +38,7 @@ class _loginState extends State<login> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
-                  child: textBox(
+                  child: TextBox(
                     TEC: usernameController,
                     hint_text: "Phone number, username or email address",
                   ),
@@ -46,7 +46,7 @@ class _loginState extends State<login> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
-                  child: textBox(
+                  child: TextBox(
                     TEC: passwordController,
                     hint_text: "Password",
                     isPassword: true,
@@ -57,23 +57,27 @@ class _loginState extends State<login> {
                     if (usernameController.text.toString() == profName &&
                         passwordController.text.toString() == password) {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Home(profName: profName)));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Home(profName: profName),
+                        ),
+                      );
                     } else {
                       showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => const AlertDialog(
-                              title:
-                                  Text('Username or password is incorrect')));
+                        context: context,
+                        builder: (BuildContext context) => const AlertDialog(
+                          title: Text('Username or password is incorrect'),
+                        ),
+                      );
                     }
                   }),
-                  child: Text(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 0, 151, 255),
+                  ),
+                  child: const Text(
                     "Log In",
                     style: TextStyle(color: Colors.white),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 0, 151, 255)),
                 )
               ],
             ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class bottomNavBar extends BottomNavigationBar {
+class BottomNavBar extends BottomNavigationBar {
   int selectedIndex;
   var onItemTapped;
-  bottomNavBar(
+  BottomNavBar(
       {super.key, required this.selectedIndex, required this.onItemTapped})
       : super(
             showSelectedLabels: false,

@@ -1,22 +1,43 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class igtvPage extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+class IgtvPage extends StatefulWidget {
   BottomNavigationBar bottomNavigationBar;
-  igtvPage({super.key, required this.bottomNavigationBar});
+  IgtvPage({super.key, required this.bottomNavigationBar});
 
   @override
-  State<igtvPage> createState() => _igtvPageState();
+  State<IgtvPage> createState() => _IgtvPageState();
 }
 
-class _igtvPageState extends State<igtvPage> {
+class _IgtvPageState extends State<IgtvPage> {
+  List dataList = List.empty();
+
+  // getAllData() async {
+  //   var response = await http.get("url")
+  //   if (response.statusCode == 200) {
+  //     setState(() {
+  //       dataList = json.decode(response.body);
+  //     });
+  //     return dataList;
+  //   }
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getAllData();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("IGTV"),
+        title: const Text("IGTV"),
         automaticallyImplyLeading: false,
       ),
-      body: Text("IGTV PAGE"),
+      body: const Text("IGTV PAGE"),
       bottomNavigationBar: widget.bottomNavigationBar,
     );
   }

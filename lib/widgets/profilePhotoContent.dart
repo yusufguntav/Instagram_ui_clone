@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class profilePhoto extends StatelessWidget {
+class ProfilePhoto extends StatelessWidget {
   double size;
   String photo;
   String content;
-  profilePhoto(
+  ProfilePhoto(
       {super.key, this.size = 30, required this.photo, this.content = " "});
 
   @override

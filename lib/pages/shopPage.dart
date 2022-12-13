@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class shopPage extends StatefulWidget {
+class ShopPage extends StatefulWidget {
   BottomNavigationBar bottomNavigationBar;
-  shopPage({super.key, required this.bottomNavigationBar});
+  ShopPage({super.key, required this.bottomNavigationBar});
 
   @override
-  State<shopPage> createState() => _shopPageState();
+  State<ShopPage> createState() => _ShopPageState();
 }
 
-class _shopPageState extends State<shopPage> {
+class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shop"),
+        title: const Text("Shop"),
         automaticallyImplyLeading: false,
       ),
-      body: Text("Shop Page"),
+      body: const Text("Shop Page"),
       bottomNavigationBar: widget.bottomNavigationBar,
     );
   }

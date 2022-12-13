@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/chats.dart';
-import 'package:insta_like_button/insta_like_button.dart';
-import 'package:instagram/notifications.dart';
 import 'package:instagram/widgets/bottomNavigationBar.dart';
-import 'package:instagram/pages/content.dart';
 import 'package:instagram/pages/explorePage.dart';
 import 'package:instagram/pages/homePage.dart';
 import 'package:instagram/pages/igtvPage.dart';
 import 'package:instagram/pages/profilePage.dart';
-import 'package:instagram/widgets/profilePhotoContent.dart';
 import 'package:instagram/pages/shopPage.dart';
 
 class Home extends StatefulWidget {
@@ -25,7 +20,6 @@ class _HomeState extends State<Home> {
     setState(
       () {
         _selectedIndex = index;
-        print(_selectedIndex);
       },
     );
   }
@@ -33,34 +27,34 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return (_selectedIndex == 0)
-        ? homePage(
-            bottomNavigationBar: bottomNavBar(
+        ? HomePage(
+            bottomNavigationBar: BottomNavBar(
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,
             ),
             profName: widget.profName,
           )
         : (_selectedIndex == 1)
-            ? explorePage(
-                bottomNavigationBar: bottomNavBar(
+            ? ExplorePage(
+                bottomNavigationBar: BottomNavBar(
                 selectedIndex: _selectedIndex,
                 onItemTapped: _onItemTapped,
               ))
             : (_selectedIndex == 2)
-                ? igtvPage(
-                    bottomNavigationBar: bottomNavBar(
+                ? IgtvPage(
+                    bottomNavigationBar: BottomNavBar(
                     selectedIndex: _selectedIndex,
                     onItemTapped: _onItemTapped,
                   ))
                 : (_selectedIndex == 3)
-                    ? shopPage(
-                        bottomNavigationBar: bottomNavBar(
+                    ? ShopPage(
+                        bottomNavigationBar: BottomNavBar(
                         selectedIndex: _selectedIndex,
                         onItemTapped: _onItemTapped,
                       ))
-                    : profilePage(
+                    : ProfilePage(
                         profName: widget.profName,
-                        bottomNavigationBar: bottomNavBar(
+                        bottomNavigationBar: BottomNavBar(
                           selectedIndex: _selectedIndex,
                           onItemTapped: _onItemTapped,
                         ));

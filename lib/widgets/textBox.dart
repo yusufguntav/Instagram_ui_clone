@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class textBox extends StatefulWidget {
+class TextBox extends StatefulWidget {
   String hint_text;
   bool isPassword;
   TextEditingController TEC;
-  textBox(
+  TextBox(
       {super.key,
       this.hint_text = "",
       this.isPassword = false,
       required this.TEC});
   @override
-  State<textBox> createState() => _textBoxState();
+  State<TextBox> createState() => _TextBoxState();
 }
 
-class _textBoxState extends State<textBox> {
+class _TextBoxState extends State<TextBox> {
   late bool _isPasswordVisible = widget.isPassword;
 
   @override
@@ -26,8 +26,8 @@ class _textBoxState extends State<textBox> {
           suffixIcon: (widget.isPassword)
               ? IconButton(
                   icon: (_isPasswordVisible)
-                      ? Icon(Icons.visibility_off)
-                      : Icon(Icons.visibility),
+                      ? const Icon(Icons.visibility_off)
+                      : const Icon(Icons.visibility),
                   color: Colors.white,
                   onPressed: (() {
                     setState(() {
