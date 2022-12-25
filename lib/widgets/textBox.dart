@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 class TextBox extends StatefulWidget {
+  Color color;
+  String prefix;
+  Color textColor;
   String hint_text;
+  String label_text;
   bool isPassword;
   TextEditingController TEC;
   TextBox(
       {super.key,
       this.hint_text = "",
+      this.label_text = "",
+      this.color = const Color.fromARGB(255, 54, 54, 54),
+      this.textColor = Colors.white,
+      this.prefix = "",
       this.isPassword = false,
       required this.TEC});
   @override
@@ -21,14 +29,23 @@ class _TextBoxState extends State<TextBox> {
     return TextField(
       controller: widget.TEC,
       obscureText: _isPasswordVisible,
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: widget.textColor),
       decoration: InputDecoration(
+          prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+          prefixIcon: (widget.prefix != "")
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(widget.prefix,
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 182, 182, 182))),
+                )
+              : null,
           suffixIcon: (widget.isPassword)
               ? IconButton(
                   icon: (_isPasswordVisible)
                       ? const Icon(Icons.visibility_off)
                       : const Icon(Icons.visibility),
-                  color: Colors.white,
+                  color: widget.textColor,
                   onPressed: (() {
                     setState(() {
                       _isPasswordVisible = !_isPasswordVisible;
@@ -39,10 +56,12 @@ class _TextBoxState extends State<TextBox> {
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(7),
               borderSide: BorderSide.none),
-          hintText: widget.hint_text,
+          hintText: (widget.hint_text != "") ? widget.hint_text : null,
+          label: (widget.label_text != "") ? Text(widget.label_text) : null,
           filled: true,
-          fillColor: const Color.fromARGB(255, 54, 54, 54),
-          hintStyle: const TextStyle(color: Colors.white)),
+          fillColor: widget.color,
+          hintStyle: TextStyle(color: widget.textColor),
+          labelStyle: TextStyle(color: widget.textColor)),
     );
   }
 }
