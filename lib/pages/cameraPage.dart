@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
@@ -54,7 +56,7 @@ class _CameraPageState extends State<CameraPage> {
                     final image = await controller!.takePicture();
                     GallerySaver.saveImage(image.path);
                   } catch (e) {
-                    print(e);
+                    debugPrint(e.toString());
                   }
                 },
                 child: const Text("Take Photo")),

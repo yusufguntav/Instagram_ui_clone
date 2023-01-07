@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/widgets/bottomNavigationBar.dart';
 import 'package:instagram/pages/explorePage.dart';
@@ -7,8 +8,8 @@ import 'package:instagram/pages/profilePage.dart';
 import 'package:instagram/pages/shopPage.dart';
 
 class Home extends StatefulWidget {
-  final String profName;
-  const Home({required this.profName, super.key});
+  final user = FirebaseAuth.instance.currentUser!;
+  Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> {
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,
             ),
-            profName: widget.profName,
+            profName: widget.user.email.toString(),
           )
         : (_selectedIndex == 1)
             ? ExplorePage(
@@ -53,7 +54,7 @@ class _HomeState extends State<Home> {
                         onItemTapped: _onItemTapped,
                       ))
                     : ProfilePage(
-                        profName: widget.profName,
+                        profName: widget.user.email.toString(),
                         bottomNavigationBar: BottomNavBar(
                           selectedIndex: _selectedIndex,
                           onItemTapped: _onItemTapped,

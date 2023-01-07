@@ -1,4 +1,7 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:instagram/assets/customColors.dart';
 import 'package:instagram/widgets/profilePhotoContent.dart';
 
 class ChatAndCall extends StatelessWidget {
@@ -26,13 +29,13 @@ class ChatAndCall extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       (lanaOrDuke % 2 == 0)
-                          ? const Text(
+                          ? Text(
                               "Duke Mcgrath",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: contentTextColor),
                             )
-                          : const Text(
+                          : Text(
                               "Lana Robin",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: contentTextColor),
                             ),
                       const Text("Active Today",
                           style: TextStyle(
@@ -47,9 +50,9 @@ class ChatAndCall extends StatelessWidget {
             flex: 1,
             child: IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.camera_enhance_outlined,
-                color: Colors.white,
+                color: contentTextColor,
               ),
             ),
           )

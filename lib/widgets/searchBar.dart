@@ -1,4 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:instagram/assets/customColors.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
@@ -7,22 +10,22 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white),
+        border: Border.all(color: contentTextColor),
         borderRadius: BorderRadius.circular(20),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: const TextField(
-        cursorColor: Colors.white,
-        style: TextStyle(color: Colors.white),
+      child: TextField(
+        cursorColor: contentTextColor,
+        style: TextStyle(color: contentTextColor),
         decoration: InputDecoration(
-          enabledBorder: UnderlineInputBorder(borderSide: BorderSide()),
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide()),
+          enabledBorder: const UnderlineInputBorder(borderSide: BorderSide()),
+          focusedBorder: const UnderlineInputBorder(borderSide: BorderSide()),
           icon: Icon(
             Icons.search,
-            color: Colors.white,
+            color: contentTextColor,
           ),
           hintText: "Search",
-          hintStyle: TextStyle(color: Colors.white),
+          hintStyle: TextStyle(color: contentTextColor),
         ),
       ),
     );

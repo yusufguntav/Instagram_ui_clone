@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, must_be_immutable, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class TextBox extends StatefulWidget {
@@ -5,6 +7,7 @@ class TextBox extends StatefulWidget {
   String prefix;
   Color textColor;
   String hint_text;
+  String error_text;
   String label_text;
   bool isPassword;
   TextEditingController TEC;
@@ -12,6 +15,7 @@ class TextBox extends StatefulWidget {
       {super.key,
       this.hint_text = "",
       this.label_text = "",
+      this.error_text = "",
       this.color = const Color.fromARGB(255, 54, 54, 54),
       this.textColor = Colors.white,
       this.prefix = "",
@@ -31,13 +35,15 @@ class _TextBoxState extends State<TextBox> {
       obscureText: _isPasswordVisible,
       style: TextStyle(color: widget.textColor),
       decoration: InputDecoration(
-          prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+          errorText: (widget.error_text.isEmpty) ? null : widget.error_text,
+          prefixIconConstraints:
+              const BoxConstraints(minWidth: 0, minHeight: 0),
           prefixIcon: (widget.prefix != "")
               ? Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Text(widget.prefix,
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 182, 182, 182))),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 182, 182, 182))),
                 )
               : null,
           suffixIcon: (widget.isPassword)

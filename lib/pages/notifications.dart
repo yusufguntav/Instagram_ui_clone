@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/assets/customColors.dart';
+import 'package:instagram/widgets/notificationCard.dart';
+import 'package:instagram/widgets/titleWidget.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -11,20 +14,21 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: backgroundColor,
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back,
-              color: Colors.white,
+              color: contentTextColor,
             )),
-        title: const Text(
+        title: Text(
           "Notifications",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: contentTextColor),
         ),
       ),
       body: SafeArea(
@@ -33,15 +37,58 @@ class _NotificationsState extends State<Notifications> {
             Expanded(
                 child: ListView(
               children: [
-                const ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.yellow,
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+                  child: NotificationCard(
+                    title: "Follow requests",
+                    subtitle: "Approve or ignore requests",
                   ),
-                  title: Text("Follow requests"),
-                  subtitle: Text("Approve or ignore requests"),
                 ),
-                const Text("dwa"),
-                const Text("dwa"),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+                  child: TitleWidget(
+                    title: "New",
+                  ),
+                ),
+                for (int i = 0; i < 3; i++) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 12),
+                    child: NotificationCard(
+                      title: "Follow requests",
+                      subtitle: "Approve or ignore requests",
+                    ),
+                  ),
+                ],
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+                  child: TitleWidget(
+                    title: "This Month",
+                  ),
+                ),
+                for (int i = 0; i < 5; i++) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 12),
+                    child: NotificationCard(
+                      title: "Follow requests",
+                      subtitle: "Approve or ignore requests",
+                    ),
+                  ),
+                ],
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+                  child: NotificationCard(
+                    title: "dokdwd",
+                    subtitle: "deneme",
+                    buttonOnpress: () => debugPrint("deneme"),
+                    buttonText: "Button",
+                  ),
+                )
               ],
             ))
           ],

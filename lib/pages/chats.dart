@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/assets/customColors.dart';
 import 'package:instagram/widgets/chatAndCall.dart';
 import 'package:instagram/widgets/searchBar.dart';
 
@@ -18,57 +19,58 @@ class _ChatState extends State<Chat> {
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              leading: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  )),
-              title: Text(
-                widget.profName,
-                style: const TextStyle(color: Colors.white),
-              ),
-              actions: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.camera_alt_outlined,
-                      color: Colors.white,
-                    )),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ))
-              ],
-              backgroundColor: Colors.black,
-              bottom: const TabBar(indicatorColor: Colors.white, tabs: [
-                Tab(
-                  text: "Chats",
-                ),
-                Tab(
-                  text: "Calls",
-                ),
-                Tab(
-                  text: "Requests",
-                ),
-              ]),
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: contentTextColor,
+                )),
+            title: Text(
+              widget.profName,
+              style: TextStyle(color: contentTextColor),
             ),
-            body: Container(
-              color: Colors.black,
-              child: TabBarView(children: [
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.camera_alt_outlined,
+                    color: contentTextColor,
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add,
+                    color: contentTextColor,
+                  ))
+            ],
+            backgroundColor: backgroundColor,
+            bottom: TabBar(indicatorColor: contentTextColor, tabs: const [
+              Tab(
+                text: "Chats",
+              ),
+              Tab(
+                text: "Calls",
+              ),
+              Tab(
+                text: "Requests",
+              ),
+            ]),
+          ),
+          body: Container(
+            color: backgroundColor,
+            child: TabBarView(
+              children: [
                 ListView(
                   scrollDirection: Axis.vertical,
                   children: [
                     const SizedBox(
                       height: 10,
                     ),
-                    SearchBar(),
+                    const SearchBar(),
                     for (int x = 1; x <= 10; x++) ...[
                       ChatAndCall(
                         lanaOrDuke: x,
@@ -81,10 +83,10 @@ class _ChatState extends State<Chat> {
                   children: [
                     Container(
                         margin: const EdgeInsets.only(left: 10, top: 5),
-                        child: const Text(
+                        child: Text(
                           "Call friends",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: contentTextColor,
                               fontSize: 20,
                               fontFamily: "Arial",
                               fontWeight: FontWeight.bold),
@@ -101,23 +103,25 @@ class _ChatState extends State<Chat> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(left: 10, top: 5),
-                      child: const Text(
+                      child: Text(
                         "Message requests",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: contentTextColor, fontSize: 20),
                       ),
                     ),
                     Container(
                       margin: const EdgeInsets.all(10),
-                      child: const Text(
+                      child: Text(
                         "Open a chat to get more info about who's messaging you. They won't know you've seen it until you accept.",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: contentTextColor),
                       ),
                     )
                   ],
                 )
-              ]),
-            )),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

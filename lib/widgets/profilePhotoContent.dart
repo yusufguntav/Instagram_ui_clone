@@ -1,4 +1,7 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:instagram/assets/customColors.dart';
 
 class ProfilePhoto extends StatelessWidget {
   double size;
@@ -23,7 +26,7 @@ class ProfilePhoto extends StatelessWidget {
             padding: const EdgeInsets.only(top: 3.0),
             child: Text(
               content,
-              style: TextStyle(fontSize: size / 2.2, color: Colors.white),
+              style: TextStyle(fontSize: size / 2.2, color: contentTextColor),
             ),
           )
         ]
